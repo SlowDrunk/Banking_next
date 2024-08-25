@@ -10,7 +10,8 @@ export default function Home() {
         <section className='home'>
             <div className="home-content">
                 <header className="home-header">
-                    <HeaderBox type="greeting" title="Welcome" user={loggedIn.firstName || 'Guest'} subtext="Access and manage your account and transactions efficiently." />
+                    <HeaderBox type="greeting" title="欢迎你，" user={loggedIn.firstName || 'Guest'} subtext="
+有效地访问和管理您的帐户和交易。" />
                     <TotalBalanceBox
                         accounts={[]} totalBanks={1} totalCurrentBalance={1250.13}></TotalBalanceBox>
                 </header>

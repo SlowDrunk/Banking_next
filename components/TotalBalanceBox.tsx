@@ -7,7 +7,7 @@ export default function TotalBalanceNox({ accounts, totalBanks, totalCurrentBala
   return (
     <section className='total-balance'>
       <div className='total-balance-chart'>
-        <DoughnutChart />
+        <DoughnutChart accounts={accounts} />
       </div>
       <div className='flex flex-col gap-6'>
         <h2 className='header-2'>
@@ -17,9 +17,9 @@ export default function TotalBalanceNox({ accounts, totalBanks, totalCurrentBala
           <p className="total-balance-label">
             总余额
           </p>
-          <p className='total-balance-amount flex-center gap-2'>
+          <div className='total-balance-amount flex-center gap-2'>
             <AnimatedCounter amount={totalCurrentBalance} />
-          </p>
+          </div>
         </div>
       </div>
     </section>

@@ -1,7 +1,22 @@
+"use client"
 import React from 'react'
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+import { Doughnut } from 'react-chartjs-2'
 
-export default function DoughnutChart() {
-  return (
-    <div>DoughnutChart</div>
-  )
+ChartJS.register(ArcElement, Tooltip, Legend)
+
+export default function DoughnutChart({ accounts }: DoughnutChartProps) {
+    const data = {
+        datasets: [
+            {
+                label: 'Tests',
+                data: [1249, 213, 2343],
+                backgroundColor: ['#0747b6', '#2265d8', "#2f91fa"]
+            }
+        ],
+        labels: ['Test1', 'Test2', 'Test3']
+    }
+    return <Doughnut data={data} options={{
+        cutout: '60%', plugins: { legend: { display: false } }
+    }} />
 }
