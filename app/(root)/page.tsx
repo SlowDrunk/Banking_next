@@ -1,10 +1,11 @@
 import React from 'react'
 import HeaderBox from '@/components/HeaderBox'
 import TotalBalanceBox from '@/components/TotalBalanceBox'
+import RightSidebar from '@/components/RightSidebar'
 // import { useTranslation } from 'next-i18next'
 
 export default function Home() {
-    const loggedIn = { firstName: "Admin" }
+    const loggedIn = { firstName: "Admin", lastName: 'JSM',email:'admin@jsm.com' }
     // const { t } = useTranslation()
     return (
         <section className='home'>
@@ -15,7 +16,9 @@ export default function Home() {
                     <TotalBalanceBox
                         accounts={[]} totalBanks={1} totalCurrentBalance={1250.13}></TotalBalanceBox>
                 </header>
+                RENCENT CONTENT
             </div>
+            <RightSidebar user={loggedIn} transactions={[]} banks={[]}></RightSidebar>
         </section>
     )
 }
