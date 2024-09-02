@@ -2,16 +2,16 @@ import React from 'react'
 import HeaderBox from '@/components/HeaderBox'
 import TotalBalanceBox from '@/components/TotalBalanceBox'
 import RightSidebar from '@/components/RightSidebar'
-// import { useTranslation } from 'next-i18next'
+import { getLoggedInUser } from '@/lib/actions/user.actions'
 
-export default function Home() {
-    const loggedIn = { firstName: "Admin", lastName: 'JSM',email:'admin@jsm.com' }
-    // const { t } = useTranslation()
+export default async function Home() {
+    const loggedIn = await getLoggedInUser()
+    console.log(loggedIn)
     return (
         <section className='home'>
             <div className="home-content">
                 <header className="home-header">
-                    <HeaderBox type="greeting" title="欢迎你，" user={loggedIn.firstName || 'Guest'} subtext="
+                    <HeaderBox type="greeting" title="欢迎你，" user={loggedIn?.name || 'Guest'} subtext="
 有效地访问和管理您的帐户和交易。" />
                     <TotalBalanceBox
                         accounts={[]} totalBanks={1} totalCurrentBalance={1250.13}></TotalBalanceBox>
