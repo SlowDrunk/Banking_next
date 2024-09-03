@@ -13,6 +13,7 @@ import CustomInput from './CustomInput'
 import { Loader2 } from 'lucide-react'
 import { signIn, signUp } from '@/lib/actions/user.actions'
 import { useRouter } from 'next/navigation'
+import PlaidLink from './PlaidLink'
 
 export default function AuthForm({ type }: { type: string }) {
     const router = useRouter()
@@ -31,7 +32,7 @@ export default function AuthForm({ type }: { type: string }) {
 
     const onSubmit = async (data: z.infer<typeof formSchema>) => {
         setIsLoading(true);
-        
+
         try {
 
             if (type === 'sign-up') {
@@ -81,7 +82,7 @@ export default function AuthForm({ type }: { type: string }) {
             {
                 user ? (
                     <div className='flex flex-col gap-4'>
-                        {user.email}
+                        <PlaidLink user={user} variant='primary' />
                     </div>
                 ) : (
                     <>
