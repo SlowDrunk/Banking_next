@@ -6,6 +6,7 @@ import { countTransactionCategories } from '@/lib/utils';
 import Category from './Category';
 
 export default function RightSidebar({ user, transactions, banks }: RightSidebarProps) {
+    console.log(user)
     const categories: CategoryCount[] = countTransactionCategories(transactions);
     return (
         <aside className='right-sidebar'>
@@ -13,12 +14,12 @@ export default function RightSidebar({ user, transactions, banks }: RightSidebar
                 <div className="profile-banner" />
                 <div className="profile">
                     <div className="profile-img">
-                        <span className="text-5xl font-bold text-blue-500">{user?.name[0]}</span>
+                        <span className="text-5xl font-bold text-blue-500">{user.lastName}</span>
                     </div>
 
                     <div className="profile-details">
                         <h1 className='profile-name'>
-                            {user?.name}
+                            {`${user.lastName}${user.firstName}`}
                         </h1>
                         <p className="profile-email">
                             {user?.email}

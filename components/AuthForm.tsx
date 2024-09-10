@@ -48,7 +48,6 @@ export default function AuthForm({ type }: { type: string }) {
                     email: data.email,
                     password: data.password
                 }
-
                 const newUser = await signUp(userData);
                 console.log(newUser, 'newUser')
                 setUser(newUser);

@@ -197,15 +197,15 @@ export const getTransactionStatus = (date: Date) => {
 
 export const authFormSchema = (type: string) => z.object({
   // sign up
-  firstName: type === 'sign-in' ? z.string().optional() : z.string().min(1),
-  lastName: type === 'sign-in' ? z.string().optional() : z.string().min(1),
-  address1: type === 'sign-in' ? z.string().optional() : z.string().max(50),
-  city: type === 'sign-in' ? z.string().optional() : z.string().max(50),
-  state: type === 'sign-in' ? z.string().optional() : z.string().min(3).max(3),
-  postalCode: type === 'sign-in' ? z.string().optional() : z.string().min(3).max(6),
-  dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-  ssn: type === 'sign-in' ? z.string().optional() : z.string().min(3),
+  firstName: type === 'sign-in' ? z.string().optional() : z.string().min(1, { message: "最长可输入长度为1的字符" }),
+  lastName: type === 'sign-in' ? z.string().optional() : z.string().min(1, { message: "最长可输入长度为1的字符" }),
+  address1: type === 'sign-in' ? z.string().optional() : z.string().max(50, { message: "最长可输入长度为50的字符" }),
+  city: type === 'sign-in' ? z.string().optional() : z.string().max(50, { message: "最长可输入长度为1的字符" }),
+  state: type === 'sign-in' ? z.string().optional() : z.string().min(2, { message: "最短必须输入两个字符" }).max(3, { message: "最长可输入长度为3的字符" }),
+  postalCode: type === 'sign-in' ? z.string().optional() : z.string().min(3, { message: "最短必须输入两个字符" }).max(5, { message: "最长可输入长度为5的字符" }),
+  dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3, { message: "最短必须输入三个字符" }),
+  ssn: type === 'sign-in' ? z.string().optional() : z.string().min(3, { message: "最短必须输入三个字符" }).max(4, { message: "最长可输入长度为4的字符" }),
   // both
   email: z.string().email(),
-  password: z.string().min(8).max(16),
+  password: z.string().min(8, { message: '密码不能低于8个字符' }).max(16, { message: '密码最长不得超过16个字符' }),
 })

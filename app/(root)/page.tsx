@@ -11,7 +11,7 @@ export default async function Home() {
         <section className='home'>
             <div className="home-content">
                 <header className="home-header">
-                    <HeaderBox type="greeting" title="欢迎你，" user={loggedIn?.name || 'Guest'} subtext="
+                    <HeaderBox type="greeting" title="欢迎你，" user={`${loggedIn?.lastName}${loggedIn.firstName}` || 'Guest'} subtext="
 有效地访问和管理您的帐户和交易。" />
                     <TotalBalanceBox
                         accounts={[]} totalBanks={1} totalCurrentBalance={1250.13}></TotalBalanceBox>
